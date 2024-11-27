@@ -16,7 +16,7 @@ Python 3.10.12
 Lo primero que tengo que hacer es ubicar en la memoria del heap el lugar donde se alamcena el buffer. Para eso con `GDB` pongo un *breakpoint* justo antes de la llamada a la función desde el puntero `f`, y ejecuto el programa con una entrada reconocible como puede ser *XXXX* que en hexadecimal debe aparecer como *58585858*. Pero antes necesito buscar la dirección de memoria desde la que empiza el **heap** que es 0x405000 en mi caso:
 ![heap start address](imgs/heap_pos.png)
 
-Muestro 240 bytes desde dicha posición con formato hexadecimal y observo que el buffer `s_midata` tiene como dirección de inicio `0x4052a0`:
+Muestro 240 posiciones desde dicha dirección con formato hexadecimal y observo que el buffer `s_midata` tiene como dirección de inicio `0x4052a0`:
 ![buffer start address](imgs/buffer_pos.png)
 
 ### Paso 2
